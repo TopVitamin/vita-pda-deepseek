@@ -1,0 +1,311 @@
+import type {
+  PickingTask,
+  SortingTask,
+  RecheckTask,
+  PackingBox,
+  ShipTask,
+} from '@/types';
+
+export const mockPickingTasks: PickingTask[] = [
+  {
+    taskNo: 'PK20260427001',
+    outboundNo: 'OB20260427001',
+    waveNo: 'WV20260427001',
+    status: 'in_progress',
+    progress: '37.5%',
+    items: [
+      {
+        id: 'PKI001',
+        locationCode: 'A-01-01',
+        productCode: 'P001',
+        productName: 'iPhone 15 Pro Max 256GB 原色钛金属',
+        barcode: '6901234567890',
+        planQty: 10,
+        pickedQty: 5,
+        waitQty: 5,
+        status: 'partial',
+      },
+      {
+        id: 'PKI002',
+        locationCode: 'A-02-03',
+        productCode: 'P002',
+        productName: 'iPad Pro M4 11英寸 512GB 深空黑色',
+        barcode: '6901234567891',
+        planQty: 5,
+        pickedQty: 0,
+        waitQty: 5,
+        status: 'pending',
+      },
+      {
+        id: 'PKI003',
+        locationCode: 'B-01-05',
+        productCode: 'P003',
+        productName: 'Apple Watch Ultra 2 钛金属表壳',
+        barcode: '6901234567892',
+        planQty: 20,
+        pickedQty: 0,
+        waitQty: 20,
+        status: 'pending',
+      },
+    ],
+  },
+  {
+    taskNo: 'PK20260427002',
+    outboundNo: 'OB20260427002',
+    waveNo: 'WV20260427001',
+    status: 'pending',
+    progress: '0%',
+    items: [
+      {
+        id: 'PKI004',
+        locationCode: 'C-03-02',
+        productCode: 'P004',
+        productName: 'MacBook Pro 14英寸 M4 Pro 1TB 深空黑色',
+        barcode: '6901234567893',
+        planQty: 3,
+        pickedQty: 0,
+        waitQty: 3,
+        status: 'pending',
+      },
+      {
+        id: 'PKI005',
+        locationCode: 'D-01-01',
+        productCode: 'P005',
+        productName: 'AirPods Pro 第二代 USB-C',
+        barcode: '6901234567894',
+        planQty: 15,
+        pickedQty: 0,
+        waitQty: 15,
+        status: 'pending',
+      },
+    ],
+  },
+];
+
+export const mockSortingTasks: SortingTask[] = [
+  {
+    taskNo: 'ST20260427001',
+    waveNo: 'WV20260427001',
+    items: [
+      {
+        id: 'STI001',
+        store: '天猫旗舰店',
+        orderNo: 'ORD202604270001',
+        slotNo: 'SL-001',
+        productCode: 'P001',
+        productName: 'iPhone 15 Pro Max 256GB 原色钛金属',
+        barcode: '6901234567890',
+        planQty: 2,
+        sortedQty: 0,
+      },
+      {
+        id: 'STI002',
+        store: '京东自营',
+        orderNo: 'ORD202604270002',
+        slotNo: 'SL-002',
+        productCode: 'P001',
+        productName: 'iPhone 15 Pro Max 256GB 原色钛金属',
+        barcode: '6901234567890',
+        planQty: 3,
+        sortedQty: 0,
+      },
+      {
+        id: 'STI003',
+        store: '抖音商城',
+        orderNo: 'ORD202604270003',
+        slotNo: 'SL-003',
+        productCode: 'P002',
+        productName: 'iPad Pro M4 11英寸 512GB 深空黑色',
+        barcode: '6901234567891',
+        planQty: 1,
+        sortedQty: 0,
+      },
+      {
+        id: 'STI004',
+        store: '拼多多',
+        orderNo: 'ORD202604270004',
+        slotNo: 'SL-004',
+        productCode: 'P003',
+        productName: 'Apple Watch Ultra 2 钛金属表壳',
+        barcode: '6901234567892',
+        planQty: 8,
+        sortedQty: 0,
+      },
+      {
+        id: 'STI005',
+        store: '天猫旗舰店',
+        orderNo: 'ORD202604270005',
+        slotNo: 'SL-005',
+        productCode: 'P003',
+        productName: 'Apple Watch Ultra 2 钛金属表壳',
+        barcode: '6901234567892',
+        planQty: 5,
+        sortedQty: 0,
+      },
+    ],
+  },
+];
+
+export const mockRecheckTasks: RecheckTask[] = [
+  {
+    taskNo: 'RCK20260427001',
+    orderNo: 'ORD202604270001',
+    boxNo: 'BX202604270001',
+    planQty: 5,
+    doneQty: 0,
+    items: [
+      {
+        id: 'RCKI001',
+        productCode: 'P001',
+        productName: 'iPhone 15 Pro Max 256GB 原色钛金属',
+        barcode: '6901234567890',
+        planQty: 2,
+        checkedQty: 0,
+      },
+      {
+        id: 'RCKI002',
+        productCode: 'P002',
+        productName: 'iPad Pro M4 11英寸 512GB 深空黑色',
+        barcode: '6901234567891',
+        planQty: 1,
+        checkedQty: 0,
+      },
+      {
+        id: 'RCKI003',
+        productCode: 'P003',
+        productName: 'Apple Watch Ultra 2 钛金属表壳',
+        barcode: '6901234567892',
+        planQty: 2,
+        checkedQty: 0,
+      },
+    ],
+  },
+  {
+    taskNo: 'RCK20260427002',
+    orderNo: 'ORD202604270002',
+    planQty: 4,
+    doneQty: 0,
+    items: [
+      {
+        id: 'RCKI004',
+        productCode: 'P001',
+        productName: 'iPhone 15 Pro Max 256GB 原色钛金属',
+        barcode: '6901234567890',
+        planQty: 3,
+        checkedQty: 0,
+      },
+      {
+        id: 'RCKI005',
+        productCode: 'P005',
+        productName: 'AirPods Pro 第二代 USB-C',
+        barcode: '6901234567894',
+        planQty: 1,
+        checkedQty: 0,
+      },
+    ],
+  },
+];
+
+export const mockPackingBoxes: PackingBox[] = [
+  {
+    boxNo: 'BX202604270001',
+    orderNo: 'ORD202604270001',
+    status: 'open',
+    items: [
+      {
+        id: 'PCKI001',
+        productCode: 'P001',
+        productName: 'iPhone 15 Pro Max 256GB 原色钛金属',
+        barcode: '6901234567890',
+        packedQty: 2,
+      },
+      {
+        id: 'PCKI002',
+        productCode: 'P002',
+        productName: 'iPad Pro M4 11英寸 512GB 深空黑色',
+        barcode: '6901234567891',
+        packedQty: 1,
+      },
+    ],
+    totalQty: 3,
+  },
+  {
+    boxNo: 'BX202604270002',
+    orderNo: 'ORD202604270001',
+    status: 'open',
+    items: [
+      {
+        id: 'PCKI003',
+        productCode: 'P003',
+        productName: 'Apple Watch Ultra 2 钛金属表壳',
+        barcode: '6901234567892',
+        packedQty: 2,
+      },
+    ],
+    totalQty: 2,
+  },
+  {
+    boxNo: 'BX202604270003',
+    orderNo: 'ORD202604270002',
+    status: 'open',
+    items: [
+      {
+        id: 'PCKI004',
+        productCode: 'P001',
+        productName: 'iPhone 15 Pro Max 256GB 原色钛金属',
+        barcode: '6901234567890',
+        packedQty: 0,
+      },
+    ],
+    totalQty: 0,
+  },
+];
+
+export const mockShipTasks: ShipTask[] = [
+  {
+    taskNo: 'SH20260427001',
+    carrier: '顺丰速运',
+    logisticsNo: 'SF1234567890123',
+    plateNo: '京A12345',
+    driver: '刘师傅',
+    shipTime: '2026-04-27 16:00:00',
+    boxes: [
+      {
+        boxNo: 'BX202604270001',
+        scanned: false,
+        orderNo: 'ORD202604270001',
+      },
+      {
+        boxNo: 'BX202604270002',
+        scanned: false,
+        orderNo: 'ORD202604270001',
+      },
+      {
+        boxNo: 'BX202604270003',
+        scanned: false,
+        orderNo: 'ORD202604270002',
+      },
+    ],
+    totalBoxes: 3,
+    scannedBoxes: 0,
+  },
+  {
+    taskNo: 'SH20260427002',
+    carrier: '京东物流',
+    logisticsNo: 'JD9876543210987',
+    boxes: [
+      {
+        boxNo: 'BX202604270004',
+        scanned: false,
+        orderNo: 'ORD202604270003',
+      },
+      {
+        boxNo: 'BX202604270005',
+        scanned: false,
+        orderNo: 'ORD202604270004',
+      },
+    ],
+    totalBoxes: 2,
+    scannedBoxes: 0,
+  },
+];
