@@ -74,7 +74,7 @@ const baseMenuGroups: MenuGroup[] = [
 export default function HomePage() {
   const navigate = useNavigate();
   const { currentUser, logout } = useUserStore();
-  const { currentWarehouse } = useWarehouseStore();
+  const { currentWarehouse, clearWarehouse } = useWarehouseStore();
   const [today] = useState(new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short' }));
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
@@ -105,7 +105,7 @@ export default function HomePage() {
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <span className="text-white text-lg font-bold">{currentWarehouse?.name}</span>
-              <button onClick={() => navigate('/select-warehouse')} className="text-blue-200 text-xs border border-blue-300 px-2 py-0.5 rounded">
+              <button onClick={() => { clearWarehouse(); navigate('/select-warehouse'); }} className="text-blue-200 text-xs border border-blue-300 px-2 py-0.5 rounded">
                 切换
               </button>
             </div>
