@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createHashRouter, Navigate } from 'react-router-dom';
 import MobileLayout from '../layouts/MobileLayout';
 import LoginPage from '../pages/auth/LoginPage';
 import SelectWarehousePage from '../pages/warehouse/SelectWarehousePage';
@@ -23,7 +23,7 @@ import SystemSettingsPage from '../pages/settings/SystemSettingsPage';
 import ParamsSettingsPage from '../pages/settings/ParamsSettingsPage';
 import DeviceSettingsPage from '../pages/settings/DeviceSettingsPage';
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <MobileLayout />,
